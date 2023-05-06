@@ -24,7 +24,7 @@ func hasScreenRecordingPermission() -> Bool {
 		properties: nil,
 		queue: DispatchQueue.global(),
 		handler: { _, _, _, _ in }
-	) != nil
+	)
  }
  return false;
 }
