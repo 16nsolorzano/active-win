@@ -15,6 +15,7 @@ func toJson<T>(_ data: T) throws -> String {
 
 // Show the system prompt if there's no permission.
 func hasScreenRecordingPermission() -> Bool {
+ if #available(macOS 13.0, *) {
 	CGDisplayStream(
 		dispatchQueueDisplay: CGMainDisplayID(),
 		outputWidth: 1,
@@ -24,4 +25,6 @@ func hasScreenRecordingPermission() -> Bool {
 		queue: DispatchQueue.global(),
 		handler: { _, _, _, _ in }
 	) != nil
+ }
+ return false;
 }
